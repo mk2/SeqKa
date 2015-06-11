@@ -1,5 +1,5 @@
 # seqqu - put everything into sequence
 
-## about
+## about:
 
-## author
+## How to use this:
