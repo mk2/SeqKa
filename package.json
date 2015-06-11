@@ -4,7 +4,7 @@
   "description": "Put everything into sequence",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/nodeunit"
+    "test": "node ./node_modules/.bin/nodeunit test"
   },
   "repository": {
     "type": "git",

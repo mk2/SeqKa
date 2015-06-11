@@ -1,5 +1,7 @@
 # seqqu - put everything into sequence
 
+[![Build Status](https://travis-ci.org/mk2/seqqu.svg)](https://travis-ci.org/mk2/seqqu)
+
 ## What is this:
 A library to make Promise(ES6+) based sequence
 
