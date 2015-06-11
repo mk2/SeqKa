@@ -2,7 +2,7 @@
  *
  * Created by harukao on 2015/06/11.
  */
-var seqqu = require("../index");
+var seqqu = require("..");
 
 exports.test_forEach_1 = function (t) {
 
