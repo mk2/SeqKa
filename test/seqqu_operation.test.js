@@ -4,7 +4,7 @@
  */
 var seqqu = require("../index");
 
-exports.test_forEach = function (t) {
+exports.test_forEach_1 = function (t) {
 
   var k   = 1000,
       seq = seqqu.Seq(0, function (v) { return v + k;});
@@ -25,16 +25,14 @@ exports.test_forEach = function (t) {
   t.done();
 };
 
-exports.test_reduce = function (t) {
+exports.test_reduce_1 = function (t) {
 
   var k   = 1000,
       seq = seqqu.Seq(0, function (v) { return v + k;});
 
-  console.log("Run first reduce");
-
   seq.reduce(function (carried, v, i) {
 
-    console.log("[reduce] index: ", i, " carried: ", carried);
+    console.log("[reduce_1] index: ", i, " carried: ", carried);
 
     if (i < 10) {
       return carried.concat(v);
@@ -45,4 +43,27 @@ exports.test_reduce = function (t) {
   }, []);
 
   t.done();
+};
+
+exports.test_reduce_2 = function (t) {
+
+  var k   = 1,
+      seq = seqqu.Seq(0, function (v) { return v + k;});
+
+  seq.reduce(function (carried, v, i) {
+
+    console.log("[reduce_2] index: ", i, " carried: ", carried);
+
+    if (i < 6) {
+      return carried.concat(v);
+    }
+
+    return seqqu.fin;
+
+  }, [], function (reduced) {
+
+    t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
+
+    t.done();
+  });
 };

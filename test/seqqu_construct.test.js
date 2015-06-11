@@ -2,7 +2,7 @@
  *
  * Created by harukao on 2015/06/11.
  */
-var seqqu = require("../lib/seqqu");
+var seqqu = require("../lib/index");
 
 exports.test_Map = function (t) {
 
