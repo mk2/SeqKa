@@ -16,9 +16,9 @@ var seq = seqqu.Map(
     function(el, resolve, reject) {
         // do anything...
         ...
-        // if you got accepting result, just call resolve with the result.
+        // if you got acceptable result, just call the resolve with the result.
         resolve(result);
-        // if not, just call reject.
+        // if not, just call the reject.
         reject(err);
     }
 );
@@ -27,4 +27,9 @@ var seq = seqqu.Map(
 seq.forEach(function(result, idx, self) {
     ...
 });
+```
+
+### `seqqu.Seq`
+```js
+// TBD
 ```
