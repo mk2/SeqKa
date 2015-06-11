@@ -31,5 +31,22 @@ seq.forEach(function(result, idx, self) {
 
 ### `seqqu.Seq`
 ```js
-// TBD
+// make arbitrary sequence
+var seq = seqqu.Seq(
+    0,                 // initial value
+    function(v) {
+        return v + 1;  // determine next value
+    }
+);
+
+// let's iterate over the sequence with the results!
+seq.reduce(function(carried, result, idx, self) {
+    if (idx < 6) {
+        return seqqu.fin;
+    } else {
+        return carried.concat(result);
+    }
+}, [], function(reduced) {
+    assert.equal(reduced, [0, 1, 2, 3, 4, 5], 'Ok, good feeling.');
+});
 ```
