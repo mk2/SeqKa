@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/mk2/seqqu.svg)](https://travis-ci.org/mk2/seqqu)
 
 ## What is this:
-A library to make Promise(ES6+) based sequence
+A library to make Promise(ES6+) based sequential structure (use like javascript array)
 
 ## How to use this:
 
