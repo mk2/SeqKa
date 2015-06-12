@@ -62,7 +62,7 @@ exports.test_reduce_2 = function (t) {
 
   }, [], function (reduced) {
 
-    console.log("[reduce_2] Result: ", reduced);
+    console.log("[reduce_2] Reduced: ", reduced);
 
     t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
     t.done();
@@ -84,9 +84,11 @@ exports.test_reducing_1 = function (t) {
 
     return seqqu.fin;
 
-  }, []).then(function (result) {
+  }, []).then(function (reduced) {
 
-    t.deepEqual(result, [0, 1, 2, 3, 4, 5]);
+    console.log("[reducing_2] Reduced: ", reduced);
+
+    t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
     t.done();
   });
 };
