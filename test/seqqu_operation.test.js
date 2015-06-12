@@ -62,6 +62,8 @@ exports.test_reduce_2 = function (t) {
 
   }, [], function (reduced) {
 
+    console.log("[reduce_2] Result: ", reduced);
+
     t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
     t.done();
   });
