@@ -2,7 +2,7 @@
  *
  * Created by harukao on 2015/06/11.
  */
-var seqqu = require("../index");
+var seqqu = require("..");
 
 exports.test_forEach_1 = function (t) {
 
@@ -62,8 +62,33 @@ exports.test_reduce_2 = function (t) {
 
   }, [], function (reduced) {
 
-    t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
+    console.log("[reduce_2] Reduced: ", reduced);
 
+    t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
+    t.done();
+  });
+};
+
+exports.test_reducing_1 = function (t) {
+
+  var k   = 1,
+      seq = seqqu.Seq(0, function (v) { return v + k;});
+
+  seq.reducing(function (carried, v, i) {
+
+    console.log("[reducing_1] index: ", i, " carried: ", carried);
+
+    if (i < 6) {
+      return carried.concat(v);
+    }
+
+    return seqqu.fin;
+
+  }, []).then(function (reduced) {
+
+    console.log("[reducing_2] Reduced: ", reduced);
+
+    t.deepEqual(reduced, [0, 1, 2, 3, 4, 5]);
     t.done();
   });
 };

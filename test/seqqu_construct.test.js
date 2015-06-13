@@ -2,7 +2,7 @@
  *
  * Created by harukao on 2015/06/11.
  */
-var seqqu = require("../lib/index");
+var seqqu = require("../lib");
 
 exports.test_Map = function (t) {
 
@@ -23,8 +23,32 @@ exports.test_Map = function (t) {
 
     if (i == end) {
       t.done();
+      return seqqu.fin;
     }
-  }, function(err) {
+  }, function (err) {
     console.log("Error: ", err);
   });
+};
+
+exports.test_New = function (t) {
+
+  var seq = seqqu.New(
+    0,
+    function (v) {
+      return v + 1;
+    },
+    function (el, resolve, _reject, self) {
+      var added = el + (self.latestResult || 0);
+      console.log(" " + added + " ");
+      resolve(added);
+    }
+  );
+
+  seq.forEach(function (v, i) {
+    if (i > 100) {
+      return seqqu.fin;
+    }
+  });
+
+  t.done();
 };
